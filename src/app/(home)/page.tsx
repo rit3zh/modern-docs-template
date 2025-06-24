@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import { FaChartBar, FaSearch, FaUsers } from "react-icons/fa";
 import { IoBookSharp } from "react-icons/io5";
@@ -184,9 +185,11 @@ export default function IndexPage() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button className="px-8 py-4 bg-white text-black rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-white/20 active:scale-95 cursor-none">
-                Get Started
-              </button>
+              <Link href={"/docs"}>
+                <button className="px-8 py-4 bg-white text-black rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-white/20 active:scale-95 cursor-none">
+                  Get Started
+                </button>
+              </Link>
 
               <button className="px-8 py-4 border-2 border-gray-600 rounded-lg font-semibold text-gray-300 hover:text-white hover:border-white hover:scale-105 transition-all duration-300 active:scale-95 cursor-none">
                 View Examples →
