@@ -11,6 +11,10 @@ interface MousePositionProps {
 }
 
 export default function IndexPage() {
+  const [mounted, setMounted] = useState<boolean>(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   const [mousePosition, setMousePosition] = useState<MousePositionProps>({
     x: 50,
     y: 30,
@@ -53,14 +57,16 @@ export default function IndexPage() {
 
   return (
     <div className="min-h-screen w-full relative bg-black overflow-hidden cursor-none">
-      <div
-        className="fixed w-6 h-6 bg-white/80 rounded-full pointer-events-none z-50 mix-blend-difference transition-transform duration-100 ease-out"
-        style={{
-          left: `${(mousePosition.x * window?.innerWidth) / 100}px`,
-          top: `${(mousePosition.y * window?.innerHeight) / 100}px`,
-          transform: "translate(-50%, -50%)",
-        }}
-      />
+      {mounted && (
+        <div
+          className="fixed w-6 h-6 bg-white/80 rounded-full pointer-events-none z-50 mix-blend-difference transition-transform duration-100 ease-out"
+          style={{
+            left: `${(mousePosition.x * window.innerWidth) / 100}px`,
+            top: `${(mousePosition.y * window.innerHeight) / 100}px`,
+            transform: "translate(-50%, -50%)",
+          }}
+        />
+      )}
 
       <style jsx>{`
         @keyframes gridFloat {
