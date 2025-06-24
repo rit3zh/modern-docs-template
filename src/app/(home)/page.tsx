@@ -10,13 +10,14 @@ interface MousePositionProps {
   y: number;
 }
 
-export default function HomePage() {
+export default function IndexPage() {
   const [mousePosition, setMousePosition] = useState<MousePositionProps>({
     x: 50,
     y: 30,
   });
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
+      if (typeof window === "undefined") return;
       setMousePosition({
         x: (e.clientX / window.innerWidth) * 100,
         y: (e.clientY / window.innerHeight) * 100,
@@ -313,7 +314,7 @@ export default function HomePage() {
                   className="p-8 rounded-xl border border-gray-800 bg-gray-900/20 backdrop-blur-sm"
                 >
                   <p className="text-gray-300 mb-6 leading-relaxed">
-                    "{testimonial.quote}"
+                    {testimonial.quote}
                   </p>
                   <div className="flex items-center">
                     <div className="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center text-white font-semibold mr-4">

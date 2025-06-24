@@ -1,6 +1,5 @@
 import { ShimmerText } from "@/components/shimmer-text";
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
-import { BookIcon } from "lucide-react";
 import { IoBookSharp } from "react-icons/io5";
 
 /**

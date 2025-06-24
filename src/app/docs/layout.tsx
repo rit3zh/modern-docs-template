@@ -2,7 +2,6 @@ import { DocsLayout } from "fumadocs-ui/layouts/docs";
 import type { ReactNode } from "react";
 import { baseOptions } from "@/app/layout.config";
 import { source } from "@/lib/source";
-import { HomeIcon, Activity, Home, Sparkles } from "lucide-react";
 import { LargeSearchToggle } from "fumadocs-ui/components/layout/search-toggle";
 import { IoBookSharp } from "react-icons/io5";
 
