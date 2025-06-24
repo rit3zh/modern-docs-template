@@ -27,6 +27,8 @@
 
 <p align="">A minimalist documentation system built with <b>Next.js</b> and powered by <a href="https://fumadocs.dev/" target="_blank"><b>Fumadocs</b></a>.</p>
 
+✨ [Check out the live demo by clicking here!](https://modern-docs-template.vercel.app/)
+
 ## ⚙️ Getting Started
 
 Install dependencies and run the development server:
