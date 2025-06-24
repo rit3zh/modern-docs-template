@@ -1,0 +1,182 @@
+---
+title: Accordion
+description: Collapsible content sections for better organization
+category: Components
+version: 2.1.0
+status: Stable
+---
+
+import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
+import { Card, Cards } from "fumadocs-ui/components/card";
+import { Callout } from "fumadocs-ui/components/callout";
+import { Tabs, Tab } from "fumadocs-ui/components/tabs";
+import { CodeBlock } from "fumadocs-ui/components/codeblock";
+import { ChevronDown, Zap, Accessibility, Palette, Code2 } from "lucide-react";
+
+<Callout type="info" icon={<Zap className="w-4 h-4" />}>
+  **Pro Tip:** Use accordions to reduce cognitive load by showing only relevant
+  information when users need it.
+</Callout>
+
+## Quick Start
+
+Get up and running with accordions in under a minute:
+
+<Tabs defaultValue="basic">
+  <Tab value="basic" label="Basic Usage">
+    ```tsx
+    import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
+
+    <Accordions>
+      <Accordion title="Your First Accordion">
+        Content goes here - it can be text, components, or anything!
+      </Accordion>
+    </Accordions>
+    ```
+
+  </Tab>
+
+  <Tab value="multiple" label="Multiple Items">
+    ```tsx
+    <Accordions type="multiple" defaultValue={["item1"]}>
+      <Accordion value="item1" title="Always Open by Default">
+        This accordion starts expanded.
+      </Accordion>
+      <Accordion value="item2" title="Click to Expand">
+        This one starts collapsed.
+      </Accordion>
+    </Accordions>
+    ```
+  </Tab>
+</Tabs>
+
+---
+
+## Interactive Demo
+
+Experience the accordion in action with this comprehensive example:
+
+<Accordions type="single" collapsible className="border rounded-lg overflow-hidden">
+  <Accordion
+    title="🚀 Installation & Setup"
+    className="border-b last:border-b-0"
+  >
+    <div className="space-y-4 p-1">
+      Install the accordion component and its dependencies:
+
+      ```bash
+      npm install fumadocs-ui
+      # or
+      yarn add fumadocs-ui
+      # or
+      pnpm add fumadocs-ui
+      ```
+
+      Then import and use in your project:
+
+      ```tsx
+      import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
+      ```
+
+      <Callout type="success">
+        The component is now ready to use in your React application!
+      </Callout>
+    </div>
+
+  </Accordion>
+
+  <Accordion
+    title="🎨 Styling & Theming"
+    className="border-b last:border-b-0"
+  >
+    <div className="space-y-4 p-1">
+      The accordion adapts to your design system automatically, but you can customize it further:
+
+      **CSS Custom Properties:**
+      ```css
+      .accordion-root {
+        --accordion-border-color: hsl(var(--border));
+        --accordion-bg-color: hsl(var(--background));
+        --accordion-text-color: hsl(var(--foreground));
+      }
+      ```
+
+      **Tailwind Classes:**
+      You can override default styles using className props on both `Accordions` and individual `Accordion` components.
+
+      <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-4 rounded-lg border">
+        💡 **Design Tip:** Use subtle animations and consistent spacing to create a polished user experience.
+      </div>
+    </div>
+
+  </Accordion>
+
+  <Accordion
+    title="♿ Accessibility Features"
+    className="border-b last:border-b-0"
+  >
+    <div className="space-y-4 p-1">
+      Our accordion component is built with accessibility in mind:
+
+      **Keyboard Navigation:**
+      - `Tab` - Navigate between accordion triggers
+      - `Enter` or `Space` - Toggle accordion panels
+      - `Arrow Keys` - Move between accordion items (when focused)
+
+      **Screen Reader Support:**
+      - Proper ARIA attributes (`aria-expanded`, `aria-controls`)
+      - Semantic HTML structure
+      - Clear focus indicators
+
+      **Additional Features:**
+      - High contrast mode support
+      - Reduced motion respect
+      - Logical tab order
+
+      <Callout type="warning" icon={<Accessibility className="w-4 h-4" />}>
+        Always test your accordions with keyboard navigation and screen readers to ensure a great experience for all users.
+      </Callout>
+    </div>
+
+  </Accordion>
+
+  <Accordion
+    title="⚙️ Advanced Configuration"
+    className="border-b last:border-b-0"
+  >
+    <div className="space-y-4 p-1">
+      Unlock powerful features with advanced configuration options:
+
+      **Multi-Expand Mode:**
+      ```tsx
+      <Accordions type="multiple" defaultValue={["faq1", "faq3"]}>
+        <Accordion value="faq1" title="Can multiple be open?">
+          Yes! This mode allows multiple panels to be open simultaneously.
+        </Accordion>
+        <Accordion value="faq2" title="How do I control this?">
+          Use the `type="multiple"` prop on the Accordions wrapper.
+        </Accordion>
+      </Accordions>
+      ```
+
+      **Controlled State:**
+      ```tsx
+      const [openItems, setOpenItems] = useState(["item1"]);
+
+      <Accordions
+        type="multiple"
+        value={openItems}
+        onValueChange={setOpenItems}
+      >
+        {/* Your accordion items */}
+      </Accordions>
+      ```
+
+      **Custom Triggers:**
+      Replace the default chevron with custom icons or completely redesign the trigger area.
+    </div>
+
+  </Accordion>
+</Accordions>
+
+---

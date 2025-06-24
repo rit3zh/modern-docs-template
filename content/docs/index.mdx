@@ -1,13 +1,33 @@
 ---
-title: Hello World
-description: Your first document
+title: Getting Started
+description: Getting started with Docs
+full: true
 ---
 
-Welcome to the docs! You can start writing documents in `/content/docs`.
+import { Card, Cards } from "fumadocs-ui/components/card";
+import { Rocket, BookOpenCheck, Sparkles } from "lucide-react";
 
-## What is Next?
+# 👋 Welcome to the Docs
+
+Start building your documentation effortlessly with **Fumadocs**. Everything you need begins right here in the `/content/docs` folder.
+
+## 🚀 What's Next?
 
 <Cards>
-  <Card title="Learn more about Next.js" href="https://nextjs.org/docs" />
-  <Card title="Learn more about Fumadocs" href="https://fumadocs.vercel.app" />
+  <Card
+    title="Explore Next.js"
+    href="https://nextjs.org/docs"
+    icon={<Rocket size={20} />}
+    description="Dive into the official Next.js documentation and explore features like routing, rendering, and deployment."
+  />
+  <Card
+    title="Understand Fumadocs"
+    href="https://fumadocs.vercel.app"
+    icon={<BookOpenCheck size={20} />}
+    description="Learn how Fumadocs works and how to customize your documentation experience."
+  />
 </Cards>
+
+---
+
+Need help? Check out the [GitHub repo](https://github.com/xv-crux/fumadocs) or join the community for support.

@@ -1,45 +1,106 @@
-# docs-template
+<!-- Banner -->
+<p align="center">
+  <img src="./assets/doc_page.png" width="100%" alt="Docs Template Banner" />
+</p>
 
-This is a Next.js application generated with
-[Create Fumadocs](https://github.com/fuma-nama/fumadocs).
+<table>
+  <tr>
+    <td><img src="./assets/home.png" width="100%"/></td>
+    <td><img src="./assets/components.png" width="100%"/></td>
+  </tr>
+</table>
 
-Run development server:
+<div align="center">
+  <p>
+    <img src="https://img.shields.io/badge/version-1.0.0-blue.svg" alt="Version" />
+    <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
+    <img src="https://img.shields.io/badge/build-passing-brightgreen.svg" alt="Build Status" />
+    <img src="https://img.shields.io/badge/PRs-welcome-purple.svg" alt="PRs Welcome" />
+  </p>
+
+<p align="center">
+  <img src="http://forthebadge.com/images/badges/built-with-love.svg" alt="Built with love" width="120px" />
+</p>
+</div>
+
+<h1 align="">📘 Modern Doc Template</h1>
+
+<p align="">A minimalist documentation system built with <b>Next.js</b> and powered by <a href="https://fumadocs.dev/" target="_blank"><b>Fumadocs</b></a>.</p>
+
+## ⚙️ Getting Started
+
+Install dependencies and run the development server:
 
 ```bash
-npm run dev
-# or
+pnpm install
 pnpm dev
-# or
-yarn dev
 ```
 
-Open http://localhost:3000 with your browser to see the result.
+Visit [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Explore
+---
 
-In the project, you can see:
+## 📁 Project Structure
 
-- `lib/source.ts`: Code for content source adapter, [`loader()`](https://fumadocs.dev/docs/headless/source-api) provides the interface to access your content.
-- `app/layout.config.tsx`: Shared options for layouts, optional but preferred to keep.
+```bash
+.
+├── app/
+│   ├── (home)/              # Landing and custom pages
+│   ├── docs/                # MDX-based documentation
+│   └── api/search/          # Search API route
+├── lib/source.ts            # Fumadocs content adapter (loader)
+├── layout.config.tsx        # Layout options
+├── source.config.ts         # MDX config (frontmatter, sidebar, etc.)
+```
 
-| Route                     | Description                                            |
-| ------------------------- | ------------------------------------------------------ |
-| `app/(home)`              | The route group for your landing page and other pages. |
-| `app/docs`                | The documentation layout and pages.                    |
-| `app/api/search/route.ts` | The Route Handler for search.                          |
+---
 
-### Fumadocs MDX
+## ✍️ How to Write Docs
 
-A `source.config.ts` config file has been included, you can customise different options like frontmatter schema.
+1. Create `.mdx` pages inside the `app/docs/` folder.
+   Example:
 
-Read the [Introduction](https://fumadocs.dev/docs/mdx) for further details.
+   ```bash
+   app/docs/guide/getting-started.mdx
+   ```
 
-## Learn More
+2. Customize sidebar, groups, and ordering in `source.config.ts` using `defineConfig()`.
 
-To learn more about Next.js and Fumadocs, take a look at the following
-resources:
+3. Use Fumadocs UI components directly in your MDX:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js
-  features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [Fumadocs](https://fumadocs.vercel.app) - learn about Fumadocs
+   ```mdx
+   import { Card } from "fumadocs-ui/components/card";
+
+   <Card title="Welcome" href="/docs/start" />
+   ```
+
+Learn more in the [Fumadocs MDX Guide →](https://fumadocs.dev/docs/mdx)
+
+---
+
+## 🛠 Customization
+
+| Feature    | How to Customize                                    |
+| ---------- | --------------------------------------------------- |
+| Branding   | Update logo, favicon, meta in `app/layout.tsx`      |
+| Navigation | Edit sidebar/nav in `source.config.ts`              |
+| Theme      | Light/dark support is built-in                      |
+| Search     | Tweak `app/api/search/route.ts` for search behavior |
+
+---
+
+## 📚 Learn More
+
+- 🔗 [Fumadocs Documentation](https://fumadocs.dev)
+- 🔗 [Next.js Documentation](https://nextjs.org/docs)
+- 🔗 [Learn Next.js](https://nextjs.org/learn)
+
+---
+
+## 💬 Community & Support
+
+- 🐙 GitHub: [github.com/rit3zh/modern-doc-template](https://github.com/rit3zh/modern-doc-template)
+- 💬 Discord: [Rit3zh](http://discordapp.com/users/755101874268536893)
+- ☕ Buy Me a Coffee: [buymeacoffee.com/rit3zh](https://buymeacoffee.com/rit3zh)
+
+> Built with ❤️ by [rit3zh](https://github.com/rit3zh) — clean, fast, and fully extensible.

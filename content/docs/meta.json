@@ -1,0 +1,7 @@
+{
+  "title": "Framework",
+  "description": "The docs framework",
+  "icon": "Building",
+  "root": true,
+  "pages": ["---Introduction---", "index", "---UI Components---", "components"]
+}
