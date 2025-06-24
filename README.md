@@ -32,13 +32,18 @@
 Install dependencies and run the development server:
 
 ```bash
-pnpm install
-pnpm dev
+$ git clone https://github.com/rit3zh/modern-docs-template
+$ cd modern-docs-template
+```
+
+Running the development server
+
+```bash
+$ pnpm install
+$ pnpm dev
 ```
 
 Visit [http://localhost:3000](http://localhost:3000) in your browser.
-
----
 
 ## 📁 Project Structure
 
