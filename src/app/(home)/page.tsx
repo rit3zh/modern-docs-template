@@ -13,14 +13,33 @@ interface MousePositionProps {
 
 export default function IndexPage() {
   const [mounted, setMounted] = useState<boolean>(false);
+  const [width, setWidth] = useState<number>(
+    typeof window !== "undefined" ? window.innerWidth : 1024
+  );
+
+  function handleWindowSizeChange() {
+    setWidth(window.innerWidth);
+  }
+
   useEffect(() => {
     setMounted(true);
+    window.addEventListener("resize", handleWindowSizeChange);
+    return () => {
+      window.removeEventListener("resize", handleWindowSizeChange);
+    };
   }, []);
+
+  const isMobile = width <= 768;
+
   const [mousePosition, setMousePosition] = useState<MousePositionProps>({
     x: 50,
     y: 30,
   });
+
   useEffect(() => {
+    // Only add mouse tracking for non-mobile devices
+    if (isMobile) return;
+
     const handleMouseMove = (e: MouseEvent) => {
       if (typeof window === "undefined") return;
       setMousePosition({
@@ -31,7 +50,7 @@ export default function IndexPage() {
 
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
+  }, [isMobile]);
 
   const containerStyle = {
     background: `
@@ -57,8 +76,13 @@ export default function IndexPage() {
   };
 
   return (
-    <div className="min-h-screen w-full relative bg-black overflow-hidden cursor-none">
-      {mounted && (
+    <div
+      className={`min-h-screen w-full relative bg-black overflow-hidden ${
+        !isMobile ? "cursor-none" : ""
+      }`}
+    >
+      {/* Custom cursor - only render for non-mobile devices */}
+      {mounted && !isMobile && (
         <div
           className="fixed w-6 h-6 bg-white/80 rounded-full pointer-events-none z-50 mix-blend-difference transition-transform duration-100 ease-out"
           style={{
@@ -186,12 +210,20 @@ export default function IndexPage() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link href={"/docs"}>
-                <button className="px-8 py-4 bg-white text-black rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-white/20 active:scale-95 cursor-none">
+                <button
+                  className={`px-8 py-4 bg-white text-black rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-white/20 active:scale-95 ${
+                    !isMobile ? "cursor-none" : ""
+                  }`}
+                >
                   Get Started
                 </button>
               </Link>
 
-              <button className="px-8 py-4 border-2 border-gray-600 rounded-lg font-semibold text-gray-300 hover:text-white hover:border-white hover:scale-105 transition-all duration-300 active:scale-95 cursor-none">
+              <button
+                className={`px-8 py-4 border-2 border-gray-600 rounded-lg font-semibold text-gray-300 hover:text-white hover:border-white hover:scale-105 transition-all duration-300 active:scale-95 ${
+                  !isMobile ? "cursor-none" : ""
+                }`}
+              >
                 View Examples →
               </button>
             </div>
@@ -354,10 +386,18 @@ export default function IndexPage() {
               documentation needs. Start building better docs today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-12 py-6 bg-white text-black rounded-lg font-semibold text-xl hover:scale-105 hover:shadow-xl hover:shadow-white/30 transition-all duration-300 active:scale-95">
+              <button
+                className={`px-12 py-6 bg-white text-black rounded-lg font-semibold text-xl hover:scale-105 hover:shadow-xl hover:shadow-white/30 transition-all duration-300 active:scale-95 ${
+                  !isMobile ? "cursor-none" : ""
+                }`}
+              >
                 Start Building Now
               </button>
-              <button className="px-12 py-6 border-2 border-gray-600 text-gray-300 rounded-lg font-semibold text-xl hover:border-white hover:text-white hover:scale-105 transition-all duration-300 active:scale-95">
+              <button
+                className={`px-12 py-6 border-2 border-gray-600 text-gray-300 rounded-lg font-semibold text-xl hover:border-white hover:text-white hover:scale-105 transition-all duration-300 active:scale-95 ${
+                  !isMobile ? "cursor-none" : ""
+                }`}
+              >
                 Schedule Demo
               </button>
             </div>
